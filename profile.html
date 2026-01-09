@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vintage Task Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'leather-dark': '#1e1b18',
+                        'leather-brown': '#3e362e',
+                        'vintage-gold': '#d4af37',
+                        'paper-cream': '#fdfbf7',
+                        'paper-dark': '#f0ebd8',
+                        'ink-black': '#231f20',
+                        'ink-blue': '#2c3e50',
+                    },
+                    fontFamily: {
+                        'serif': ['"Playfair Display"', 'serif'],
+                        'mono': ['"Courier Prime"', 'monospace'],
+                    },
+                    boxShadow: {
+                        'paper': '4px 4px 10px rgba(0, 0, 0, 0.1), inset 0 0 40px rgba(0,0,0,0.02)',
+                        'emboss': 'inset 1px 1px 2px rgba(0,0,0,0.5), 1px 1px 0 rgba(255,255,255,0.1)',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom noise texture for paper feel */
+        .texture-paper {
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100' height='100' filter='url(%23noise)' opacity='0.05'/%3E%3C/svg%3E");
+        }
+        /* Leather texture for sidebar */
+        .texture-leather {
+            background-color: #1e1b18;
+            background-image: url("data:image/svg+xml,%3Csvg width='200' height='200' viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='leather'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.5' numOctaves='3'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23leather)' opacity='0.15'/%3E%3C/svg%3E");
+        }
+    </style>
+</head>
+<body class="bg-gray-200 h-screen flex font-mono overflow-hidden">
+
+    <!-- LEFT SIDEBAR: "Vintage Book Spine" Style -->
+    <aside class="w-64 h-full texture-leather text-vintage-gold flex flex-col shadow-2xl z-20 relative border-r-4 border-[#110f0d]">
+        
+        <!-- Profile / Brand Section -->
+        <div class="p-8 text-center border-b border-leather-brown relative">
+            <div class="w-20 h-20 mx-auto rounded-full border-4 border-vintage-gold shadow-lg overflow-hidden mb-4 sepia">
+                <img src="https://api.dicebear.com/7.x/notionists/svg?seed=Felix" alt="Profile" class="w-full h-full object-cover">
+            </div>
+            <h2 class="font-serif text-xl tracking-widest text-gray-200">The Architect</h2>
+            <p class="text-xs text-vintage-gold opacity-60 mt-1 italic font-serif">Est. 1985</p>
+        </div>
+
+        <!-- Navigation Links -->
+        <nav class="flex-1 py-8 px-4 space-y-2">
+            <a href="#" class="flex items-center gap-4 px-4 py-3 bg-leather-brown/50 border border-vintage-gold/20 rounded text-vintage-gold shadow-emboss transition hover:bg-leather-brown">
+                <span class="text-lg">❖</span>
+                <span class="font-serif tracking-wide">Dashboard</span>
+            </a>
+            <a href="#" class="flex items-center gap-4 px-4 py-3 text-gray-400 hover:text-vintage-gold hover:bg-white/5 rounded transition">
+                <span class="text-lg">!</span>
+                <span class="font-serif tracking-wide">Vital Tasks</span>
+            </a>
+            <a href="#" class="flex items-center gap-4 px-4 py-3 text-gray-400 hover:text-vintage-gold hover:bg-white/5 rounded transition">
+                <span class="text-lg">☑</span>
+                <span class="font-serif tracking-wide">My Ledger</span>
+            </a>
+            <a href="#" class="flex items-center gap-4 px-4 py-3 text-gray-400 hover:text-vintage-gold hover:bg-white/5 rounded transition">
+                <span class="text-lg">☰</span>
+                <span class="font-serif tracking-wide">Categories</span>
+            </a>
+            <a href="#" class="flex items-center gap-4 px-4 py-3 text-gray-400 hover:text-vintage-gold hover:bg-white/5 rounded transition">
+                <span class="text-lg">⚙</span>
+                <span class="font-serif tracking-wide">Settings</span>
+            </a>
+        </nav>
+
+        <!-- Logout -->
+        <div class="p-6 border-t border-leather-brown">
+            <button class="flex items-center gap-3 text-red-300/70 hover:text-red-300 transition text-sm uppercase tracking-widest">
+                <span>↪</span> Sign Out
+            </button>
+        </div>
+    </aside>
+
+    <!-- RIGHT CONTENT AREA -->
+    <main class="flex-1 bg-[#e8e4d9] relative p-8 md:p-12 overflow-y-auto texture-paper">
+        
+        <!-- Top Bar (Search + Date) -->
+        <header class="flex justify-between items-center mb-10">
+            <h1 class="font-serif text-3xl text-ink-black font-bold flex items-center gap-2">
+                <span class="text-vintage-gold">✦</span> Vintage-Task
+            </h1>
+            
+            <div class="flex items-center gap-6">
+                <!-- Search Bar -->
+                <div class="relative">
+                    <input type="text" placeholder="Search the archives..." 
+                        class="bg-transparent border-b-2 border-gray-400 focus:border-vintage-gold px-2 py-1 w-64 text-ink-black placeholder-gray-500 focus:outline-none transition-colors font-serif italic">
+                    <button class="absolute right-0 top-1 text-gray-500 hover:text-vintage-gold">🔍</button>
+                </div>
+                
+                <!-- Date Stamp -->
+                <div class="text-right border-l-2 border-gray-400 pl-4">
+                    <div class="text-xs text-gray-500 uppercase tracking-widest">Date Stamp</div>
+                    <div class="font-serif font-bold text-ink-black">Friday, Jan 09</div>
+                </div>
+            </div>
+        </header>
+
+        <!-- MAIN CARD (Replicating the "Account Information" container) -->
+        <div class="w-full max-w-5xl mx-auto bg-paper-cream shadow-paper border border-gray-300 p-8 md:p-12 relative">
+            <!-- Decorative Corners -->
+            <div class="absolute top-2 left-2 w-4 h-4 border-t-2 border-l-2 border-vintage-gold"></div>
+            <div class="absolute top-2 right-2 w-4 h-4 border-t-2 border-r-2 border-vintage-gold"></div>
+            <div class="absolute bottom-2 left-2 w-4 h-4 border-b-2 border-l-2 border-vintage-gold"></div>
+            <div class="absolute bottom-2 right-2 w-4 h-4 border-b-2 border-r-2 border-vintage-gold"></div>
+
+            <!-- Card Header -->
+            <div class="flex justify-between items-start border-b-2 border-double border-gray-300 pb-6 mb-8">
+                <div class="flex gap-6 items-center">
+                    <div class="w-20 h-20 rounded-full border border-gray-400 p-1 bg-white shadow-sm">
+                        <img src="https://api.dicebear.com/7.x/notionists/svg?seed=Felix" alt="User" class="w-full h-full rounded-full grayscale opacity-80">
+                    </div>
+                    <div>
+                        <h2 class="text-2xl font-serif font-bold text-ink-black">Member Particulars</h2>
+                        <p class="text-gray-500 text-sm">Designation: Task Master</p>
+                        <div class="flex items-center gap-1 mt-2 text-yellow-600">
+                            ★★★★☆ <span class="text-gray-400 text-xs ml-2">(273 Entries)</span>
+                        </div>
+                    </div>
+                </div>
+                <button class="text-xs font-bold uppercase tracking-widest text-gray-500 hover:text-ink-black hover:underline">
+                    ← Return to Index
+                </button>
+            </div>
+
+            <!-- Form Fields (Grid Layout) -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8">
+                
+                <!-- Field 1 -->
+                <div class="group">
+                    <label class="block font-serif text-sm font-bold text-gray-500 mb-1 uppercase tracking-widest">First Name</label>
+                    <input type="text" value="Felix" 
+                        class="w-full bg-paper-dark/30 border-b-2 border-gray-300 px-3 py-2 text-ink-blue font-serif text-lg focus:outline-none focus:border-vintage-gold focus:bg-paper-dark/50 transition-colors">
+                </div>
+
+                <!-- Field 2 -->
+                <div class="group">
+                    <label class="block font-serif text-sm font-bold text-gray-500 mb-1 uppercase tracking-widest">Last Name</label>
+                    <input type="text" value="Evergreen" 
+                        class="w-full bg-paper-dark/30 border-b-2 border-gray-300 px-3 py-2 text-ink-blue font-serif text-lg focus:outline-none focus:border-vintage-gold focus:bg-paper-dark/50 transition-colors">
+                </div>
+
+                <!-- Field 3 -->
+                <div class="group md:col-span-2">
+                    <label class="block font-serif text-sm font-bold text-gray-500 mb-1 uppercase tracking-widest">Correspondence Address (Email)</label>
+                    <input type="email" value="felix.evergreen@vintage-task.com" 
+                        class="w-full bg-paper-dark/30 border-b-2 border-gray-300 px-3 py-2 text-ink-blue font-serif text-lg focus:outline-none focus:border-vintage-gold focus:bg-paper-dark/50 transition-colors">
+                </div>
+
+                <!-- Field 4 -->
+                <div class="group">
+                    <label class="block font-serif text-sm font-bold text-gray-500 mb-1 uppercase tracking-widest">Telegraph / Contact</label>
+                    <input type="text" value="+1 (555) 019-2834" 
+                        class="w-full bg-paper-dark/30 border-b-2 border-gray-300 px-3 py-2 text-ink-blue font-serif text-lg focus:outline-none focus:border-vintage-gold focus:bg-paper-dark/50 transition-colors">
+                </div>
+
+                <!-- Field 5 -->
+                <div class="group">
+                    <label class="block font-serif text-sm font-bold text-gray-500 mb-1 uppercase tracking-widest">Station / Position</label>
+                    <input type="text" value="Senior Archivist" 
+                        class="w-full bg-paper-dark/30 border-b-2 border-gray-300 px-3 py-2 text-ink-blue font-serif text-lg focus:outline-none focus:border-vintage-gold focus:bg-paper-dark/50 transition-colors">
+                </div>
+
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="mt-12 flex gap-4 border-t border-dashed border-gray-300 pt-6">
+                <button class="bg-ink-blue text-paper-cream px-6 py-2 rounded-sm shadow-md font-serif hover:bg-ink-black transition border-2 border-transparent focus:border-vintage-gold">
+                    Save Changes
+                </button>
+                <button class="bg-transparent text-gray-500 px-6 py-2 rounded-sm font-serif hover:text-red-800 hover:bg-red-50 transition border border-gray-300 hover:border-red-300">
+                    Cancel
+                </button>
+            </div>
+
+        </div>
+    </main>
+</body>
+</html>
