@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vantage Tasks | Manage with Precision</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .vantage-blue { color: #004b87; }
+        .bg-vantage { background-color: #004b87; }
+        .vantage-gradient { background: linear-gradient(135deg, #004b87 0%, #002d52 100%); }
+        .feature-card:hover { border-bottom-color: #004b87; transform: translateY(-5px); }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900">
+
+    <nav class="flex items-center justify-between px-8 py-5 bg-white shadow-sm sticky top-0 z-50">
+        <div class="flex items-center space-x-3">
+            <img src="C:\xampp\htdocs\WEBPROJECT\logo.png" alt="Vantage Tasks Logo" class="h-10 w-auto">
+            <span class="text-2xl font-extrabold text-[#004b87] tracking-tight">VANTAGE <span class="text-slate-400 font-light">TASKS</span></span>
+        </div>
+        <div class="hidden md:flex space-x-8 font-semibold text-slate-600">
+            <a href="#" class="hover:text-blue-800 transition">Features</a>
+            <a href="#" class="hover:text-blue-800 transition">Solutions</a>
+            <a href="#" class="hover:text-blue-800 transition">Pricing</a>
+        </div>
+        <button class="bg-vantage text-white px-7 py-2.5 rounded-lg font-bold hover:bg-[#003a6a] transition shadow-md">
+            Get Started
+        </button>
+    </nav>
+
+    <header class="vantage-gradient text-white py-24 px-8">
+        <div class="max-w-6xl mx-auto text-center">
+            <h1 class="text-5xl md:text-7xl font-extrabold mb-8 leading-tight tracking-tight">
+                Diamond-Cut Precision <br>for Project Teams.
+            </h1>
+            <p class="text-xl text-blue-100 mb-12 max-w-2xl mx-auto font-medium opacity-90">
+                Stop wrestling with messy tools. Vantage Tasks provides the clarity your team needs to ship faster and work smarter.
+            </p>
+            <div class="flex flex-col md:flex-row justify-center gap-4">
+                <input type="email" placeholder="Enter your work email" class="px-6 py-4 rounded-xl text-slate-900 w-full md:w-96 focus:outline-none focus:ring-4 focus:ring-blue-400/30">
+                <button class="bg-white text-[#004b87] px-10 py-4 rounded-xl font-bold text-lg hover:bg-blue-50 transition shadow-xl">
+                    Try For Free
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <section class="py-24 px-8 max-w-7xl mx-auto">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl font-extrabold text-[#002d52]">Built for High-Performance</h2>
+            <p class="text-slate-500 mt-4 text-lg">The features you love, refined for maximum efficiency.</p>
+        </div>
+        
+        <div class="grid md:grid-cols-3 gap-10">
+            <div class="feature-card bg-white p-10 rounded-3xl shadow-sm border border-slate-100 border-b-8 border-transparent transition-all duration-300">
+                <div class="w-12 h-12 bg-blue-50 rounded-lg flex items-center justify-center mb-6">
+                    <svg class="w-6 h-6 text-vantage" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" /></svg>
+                </div>
+                <h3 class="text-2xl font-bold mb-3 text-[#002d52]">Board Clarity</h3>
+                <p class="text-slate-600 leading-relaxed">Visual management that makes sense. Track every sub-task with zero confusion.</p>
+            </div>
+
+            <div class="feature-card bg-white p-10 rounded-3xl shadow-sm border border-slate-100 border-b-8 border-transparent transition-all duration-300">
+                <div class="w-12 h-12 bg-blue-50 rounded-lg flex items-center justify-center mb-6">
+                    <svg class="w-6 h-6 text-vantage" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+                </div>
+                <h3 class="text-2xl font-bold mb-3 text-[#002d52]">Real-time Velocity</h3>
+                <p class="text-slate-600 leading-relaxed">Automated reporting that shows you exactly how fast your team is moving.</p>
+            </div>
+
+            <div class="feature-card bg-white p-10 rounded-3xl shadow-sm border border-slate-100 border-b-8 border-transparent transition-all duration-300">
+                <div class="w-12 h-12 bg-blue-50 rounded-lg flex items-center justify-center mb-6">
+                    <svg class="w-6 h-6 text-vantage" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" /></svg>
+                </div>
+                <h3 class="text-2xl font-bold mb-3 text-[#002d52]">Secure Workflows</h3>
+                <p class="text-slate-600 leading-relaxed">Enterprise-grade security for your data, wrapped in a simple, elegant interface.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-[#001e3c] text-slate-400 py-16 px-8">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center">
+            <div class="flex items-center space-x-2 mb-6 md:mb-0">
+                <img src="C:\xampp\htdocs\WEBPROJECT\logo.png" alt="Logo" class="h-8 w-auto grayscale brightness-200">
+                <span class="text-white font-bold text-xl tracking-tight">VANTAGE <span class="opacity-50 font-light">TASKS</span></span>
+            </div>
+            <div class="flex space-x-10 font-medium">
+                <a href="#" class="hover:text-white transition">Privacy Policy</a>
+                <a href="#" class="hover:text-white transition">Security</a>
+                <a href="#" class="hover:text-white transition">Support</a>
+            </div>
+            <p class="mt-8 md:mt-0 text-sm opacity-60 italic">© 2026 Vantage Tasks Inc.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
