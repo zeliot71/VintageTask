@@ -1,10 +1,16 @@
 <?php
 function auth_user() {
+    global $pdo;
+    
     if (!isset($_SESSION['user_id'])) {
         return null;
     }
+    
+    if (!isset($pdo)) {
+        die("Database connection missing in auth.");
+    }
+    
     try {
-        require_once __DIR__ . '/db.php';
         $stmt = $pdo->prepare("SELECT id, email, first_name, last_name FROM users WHERE id = ?");
         $stmt->execute([$_SESSION['user_id']]);
         return $stmt->fetch(PDO::FETCH_ASSOC);

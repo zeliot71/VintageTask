@@ -10,4 +10,8 @@ try {
 } catch (PDOException $e) {
     die("Connection failed: " . $e->getMessage());
 }
+
+if (!isset($pdo)) {
+    die("Failed to initialize database connection.");
+}
 ?>
